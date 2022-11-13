@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'home' ,
 ]
 
 MIDDLEWARE = [
@@ -54,7 +55,7 @@ ROOT_URLCONF = 'my_blog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["C:/Users/Martin D/documents/proyectos_coder/proyecto_final/my_blog"],
+        'DIRS': ["C:/Users/Martin D/documents/proyectos_coder/proyecto_final/my_blog/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
