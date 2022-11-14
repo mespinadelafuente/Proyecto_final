@@ -18,12 +18,20 @@ from django.urls import path
 from my_blog.views import saludo
 from my_blog.views import probandotemplate
 from curso.views import curso
+from entregable.views import entregables
+from estudiantes.views import estudiantes
+from profesor.views import profesores
+from curso.views import cursos
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('saludo/', saludo) , 
     path('template1/', probandotemplate) ,
     path ('curso/', curso) ,
+    path  ('entregables/', entregables) ,
+    path ('estudiantes/', estudiantes) ,
+    path ('profesores/', profesores) ,
+    path ('cursos/', cursos) ,
     
 
 ]

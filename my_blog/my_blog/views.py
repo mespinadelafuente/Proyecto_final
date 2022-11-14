@@ -17,3 +17,4 @@ def probandotemplate (self):
     plantilla = loader.get_template ('template1.html')
     documento = plantilla.render(diccionario) 
     return HttpResponse (documento)
+
