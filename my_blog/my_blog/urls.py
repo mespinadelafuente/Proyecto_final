@@ -22,16 +22,18 @@ from entregable.views import entregables
 from estudiantes.views import estudiantes
 from profesor.views import profesores
 from curso.views import cursos
+from django.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("", include ("home.urls")),
     path('saludo/', saludo) , 
     path('template1/', probandotemplate) ,
-    path ('curso/', curso) ,
-    path  ('entregables/', entregables) ,
-    path ('estudiantes/', estudiantes) ,
-    path ('profesores/', profesores) ,
-    path ('cursos/', cursos) ,
+    path('curso/', curso) ,
+    path('entregables/', entregables) ,
+    path('estudiantes/', estudiantes) ,
+    path('profesores/', profesores) ,
+    path('cursos/', cursos) ,
     
 
 ]
