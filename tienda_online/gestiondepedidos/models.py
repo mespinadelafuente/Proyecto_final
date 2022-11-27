@@ -9,7 +9,7 @@ class Clientes (models.Model):
     telefono=models.CharField(max_length=15)
 
     def __str__(self) -> str:
-        return (f"{self.nombre} {self.apellido} {self.telefono}")
+        return self.nombre
 
 class Articulos(models.Model):
     nombre=models.CharField(max_length=30)
@@ -17,7 +17,7 @@ class Articulos(models.Model):
     precio=models.IntegerField()
 
     def __str__(self) -> str:
-        return (f"El articulo {self.nombre} correspondiente a {self.categoria} tiene un precio de ${self.precio}")
+        return (self.nombre)
 
 class Pedidos(models.Model):
     numero=models.IntegerField(null=True)
