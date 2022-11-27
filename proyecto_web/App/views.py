@@ -16,3 +16,6 @@ def blog (request) :
 
 def contacto (request) :
     return render (request, "App/contacto.html")
+
+def servicios (request) :
+    return render (request, "App/servicios.html")
