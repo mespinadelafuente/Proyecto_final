@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'App',
     'Servicios' ,
     'Blog',
+    'Contacto',
+    'Tienda',
+    'Carro',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +60,7 @@ ROOT_URLCONF = 'proyecto_web.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/Martin D/documents/proyectos_coder/proyecto_final/proyecto_web/App/templates'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -65,6 +68,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'Carro.context_processor.importe_total_carro',
+    
             ],
         },
     },

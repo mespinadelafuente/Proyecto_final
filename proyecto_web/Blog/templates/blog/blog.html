@@ -29,14 +29,14 @@
 
     {% endfor %}
     <section>
-        <div style="width:75%; background-color: rgba(132, 237, 146, 0.548);margin: auto;"> 
-            <h2 style="color:rgb(0, 0, 0); text-align: center;font-size: 1em;">
+        <div style="width:75%;background-color:white;margin: auto;"> 
+            <h2 style= "text-align:center;font-size:1em;">
             Categorias:
             {% for post in posts %}
 
                 {% for categoria in post.categorias.all %}
 
-                    {{categoria.nombre}} &nbsp;&nbsp;&nbsp;
+                    <a href= "{% url 'categoria' categoria.id %}" class=".linksCategorias">{{categoria.nombre}} </a>&nbsp;&nbsp;&nbsp;
                 
                 {% endfor %}
 

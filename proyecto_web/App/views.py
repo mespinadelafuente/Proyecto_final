@@ -9,10 +9,8 @@ def home (request) :
 def about (request) :
     return render (request, "App/about.html")
 
-def tienda  (request) :
-    return render (request, "App/tienda.html")
 
-def contacto (request) :
-    return render (request, "App/contacto.html")
+
+
 
 
