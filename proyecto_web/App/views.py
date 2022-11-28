@@ -12,9 +12,6 @@ def about (request) :
 def tienda  (request) :
     return render (request, "App/tienda.html")
 
-def blog (request) :
-    return render (request, "App/blog.html")
-
 def contacto (request) :
     return render (request, "App/contacto.html")
 
