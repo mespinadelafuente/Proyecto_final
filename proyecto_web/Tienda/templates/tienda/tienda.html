@@ -4,26 +4,32 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container-fluid">
   
   <div style="float: right ;">
 
     
+    {% if request.user.is_authenticated %}
 
     {% include "Carro/widget.html" %}
-  
+    
+    {% else %}
+
+      <div class="alert alert-danger text-center">Debes logearte para ver el carro </div>
+
+    {% endif %}
   </div>
   <div class="row">
 
   {% for producto in productos %}
 
-  <div class="col-md-3">
+  <div class="col-sm">
 
   <div class="card" style= "width: 80%;margin: 10px 10px;">
 
       <img src= "{{producto.imagen.url}}" class="card-img-top">
       
-      <div class="card-body" style="text-align:center">
+      <div class="card-body" style="text-align:justify">
 
         <h7 class="card-title">{{producto.nombre}}</h7>
 
@@ -31,7 +37,7 @@
 
       </div>
     
-      <div class="card-title text-center  ">
+      <div class=" card-title text-align; col-xl-9 ">
         <a href="{% url 'carro:agregar' producto.id %}" class="btn btn-success">Agregar al carro</a>
 
       </div>

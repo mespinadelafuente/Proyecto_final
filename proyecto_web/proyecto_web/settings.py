@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+from django.contrib.messages import constants as mensajes_de_error
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,6 +44,9 @@ INSTALLED_APPS = [
     'Contacto',
     'Tienda',
     'Carro',
+    'Autenticacion',
+    'crispy_forms',
+    
 ]
 
 MIDDLEWARE = [
@@ -127,6 +131,15 @@ STATIC_URL = 'static/'
 
 MEDIA_URL= '/media/'
 MEDIA_ROOT=BASE_DIR / 'media'
+
+CRISPY_TEMPLATE_PACK='bootstrap4'
+MESSAGE_TAGS={
+    mensajes_de_error.DEBUG:'debug',
+    mensajes_de_error.INFO:'info',
+    mensajes_de_error.SUCCESS:'success',
+    mensajes_de_error.WARNING:'warning',
+    mensajes_de_error.ERROR:'danger',
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
