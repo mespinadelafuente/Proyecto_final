@@ -82,6 +82,11 @@
     {% endfor %}
 </div>
 
-<a style="text-align: center;" class="button_custom" href="{% url 'pages:post-add' %}">Crear nuevo Post</a>
+{% if user.is_authenticated %}
+    <a style="text-align: center;" class="button_custom" href="{% url 'pages:post-add' %}">Crear nuevo Post</a>
+{% else %}
+    <a style="text-align: center;" class="button_custom" href="{% url 'logear' %}">Crear nuevo Post</a> 
+{% endif %}
+
 
 {% endblock %}
