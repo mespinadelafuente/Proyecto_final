@@ -40,12 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'App',
     'Servicios' ,
-    'Blog',
     'Contacto',
     'Tienda',
     'Carro',
     'Autenticacion',
     'crispy_forms',
+    'Pages',
+    'ckeditor',
     
 ]
 

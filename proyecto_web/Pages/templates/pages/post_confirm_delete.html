@@ -1,0 +1,32 @@
+{% extends "App/base.html" %}
+{% load static %}
+
+{% block content %}
+Post delete
+
+<header class="masthead" >
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-15 col-lg-16 col-xl-14">
+                <div class="site-heading">
+                    <h1>{{ post.name }}</h1>
+                    <span class="subheading">Eliminar Post</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+<h1 style="color:azure">Estás seguro de eliminar el Post: {{ post.name }}?</h1>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <input class="btn btn-danger" type="submit" value="Si, eliminar.">
+    <a class="btn btn-primary" href="{% url 'pages:post-list' %}" >Cancelar</a>
+</form>
+
+{% endblock %}

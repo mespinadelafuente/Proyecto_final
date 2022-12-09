@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, reverse_lazy
 from .views import Vregistro,cerrar_sesion,logear
 
 urlpatterns = [
@@ -8,6 +8,6 @@ urlpatterns = [
     path ('cerrar_sesion', cerrar_sesion, name='cerrar_sesion') ,
 
     path ('logear', logear, name='logear') ,
-    
+
 
 ]

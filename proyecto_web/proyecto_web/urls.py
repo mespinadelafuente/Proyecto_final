@@ -22,9 +22,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('App.urls')),
     path ("servicios/", include ("Servicios.urls")),
-    path ('blog/', include ('Blog.urls')),
     path ('contacto/', include ('Contacto.urls')),
     path ('tienda/', include ('Tienda.urls')),
     path('carro/', include ('Carro.urls')),
     path('autenticacion/', include ('Autenticacion.urls')),
+    path('page/', include ('Pages.urls')) ,
 ]

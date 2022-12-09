@@ -1,0 +1,87 @@
+{% extends "App/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<header class="masthead" >
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-15 col-lg-16 col-xl-14">
+                <div class="site-heading">
+                    <h1 style="font-family: Verdana, Geneva, Tahoma, sans-serif; color: bisque;" >{{ post.name }}</h1>
+                    <span class="subheading"></span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</header>
+
+
+<!-- Post preview-->
+<div style="color: antiquewhite;" class="post-preview">
+    
+
+   
+
+    <!-- Description -->
+    <p style="margin:auto; color: bisque; font-family: Arial, Helvetica, sans-serif; "class="card-text">{{ post.description|safe }}</p> <!-- ckeditor-->
+    
+     <!-- Image -->
+    {% if post.image %}
+        <div style="text-align: center;">
+            <img height="400px" src="{{ post.image.url }}">
+        </div>
+    {% endif %}
+    
+&nbsp;
+
+    <p class="post-meta">
+        Creado por
+        <span style="color: #ee3131;" href="">{{ post.owner.username }}</span>
+        ( {{ post.created_at }} )
+        <br>
+        Última fecha de actualización ( {{ post.updated_at }} )
+    </p>
+    <h6 class="post-subtitle">Posteo numero: {{ post.code }}</h6>
+
+    <!-- Update-Delete link only for the owner -->
+    {% if user == post.owner or user.is_superuser %}
+        <p style="text-align: center">
+            <a style="color: bisque;" href="{% url 'pages:post-update' post.id %}">
+                <i class="fa fa-pencil" style="color: #1c1c91;"></i> Editar Post
+            </a>
+            &ensp; | &ensp;
+            <a style="color: bisque;" href="{% url 'pages:post-delete' post.id %}">
+                <i class="fa fa-trash" style="color: #881a1a;"></i> Eliminar Post
+            </a>
+        </p>
+    {% endif %}
+    
+    <!-- Divider-->
+    <hr class="my-4" />
+
+    <!-- Comment creation -->
+    <form method="POST" action="{% url 'pages:comment-create' post.id %}">
+        {% csrf_token %}
+        {{ comment_form }}
+    <input type="submit" value="Publicar comentario">
+    </form>
+    {% if not comments %}
+        <p></p>
+    {% endif %}
+
+    <!-- Comments list -->
+    {% for comment in comments %}
+        <p> {{ comment.text }}
+            ({{ comment.owner.username }} | {{ comment.updated_at }})
+            {% if user == comment.owner or user.is_superuser %}
+            <a style= "color: aliceblue" href="{% url 'pages:comment-delete' comment.id %}"><i class="fa fa-trash" style="color: #881a1a;"></i></a>
+            {% endif %}
+        </p>
+    {% endfor %}
+</div>
+
+<a style="text-align: center;" class="button_custom" href="{% url 'pages:post-add' %}">Crear nuevo Post</a>
+
+{% endblock %}

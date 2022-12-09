@@ -1,0 +1,37 @@
+{% extends "App/base.html" %}
+{% load static %}
+
+<!-- ckeditor-->
+{% block extrahead %}
+<script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
+{{ block.super }}
+{% endblock %}
+<!-- ckeditor-->
+
+{% block content %}
+
+<header class="masthead" >
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-15 col-lg-16 col-xl-14">
+                <div class="site-heading">
+                    <h2 style=" font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: antiquewhite;">Formulario para guardar/editar post</h2>
+                    <span class="subheading" style="color: beige;">My blog Los Halcones</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div>
+        <form action="" method="POST" enctype="multipart/form-data" style=" text-align: center ; font-family: Arial, Helvetica, sans-serif; color:azure" >
+            {% csrf_token %}
+            {{ form.media }} <!-- ckeditor-->
+            {{ form.as_p }}
+            <input type="submit" class="btn btn-primary" value="Guardar post" />
+        </form>
+    </div>
+    <!-- Divider-->
+    <hr class="my-4" />
+
+{% endblock %}
