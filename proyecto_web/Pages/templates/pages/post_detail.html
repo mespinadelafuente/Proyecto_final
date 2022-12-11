@@ -62,14 +62,26 @@
     <hr class="my-4" />
 
     <!-- Comment creation -->
-    <form method="POST" action="{% url 'pages:comment-create' post.id %}">
-        {% csrf_token %}
-        {{ comment_form }}
-    <input type="submit" value="Publicar comentario">
-    </form>
-    {% if not comments %}
-        <p></p>
+    {% if user.is_authenticated %}    
+        <form method="POST" action="{% url 'pages:comment-create' post.id %}">
+            {% csrf_token %}
+            {{ comment_form }}
+        <input type="submit" value="Publicar comentario">
+        </form>
+        {% if not comments %}
+            <p></p>
+        {% endif %}
+    {% else %}    
+        <form method="POST" action="{% url 'logear' %}">
+            {% csrf_token %}
+            {{ comment_form }}
+        <input type="submit" value="Publicar comentario">
+        </form>
+        {% if not comments %}
+            <p></p>
+        {% endif %}
     {% endif %}
+
 
     <!-- Comments list -->
     {% for comment in comments %}
